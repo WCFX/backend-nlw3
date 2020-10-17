@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 
-app.post('/orphanages', (req, res) => {
+app.post('/orphanages', async (req, res) => {
 
   const {
     name,
@@ -35,7 +35,7 @@ app.post('/orphanages', (req, res) => {
 
   });
 
-  orphanagesRepository.save(orphanage);
+  await orphanagesRepository.save(orphanage);
 
   return res.json({ message: "Hello World"});
 });
